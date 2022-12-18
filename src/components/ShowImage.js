@@ -10,7 +10,7 @@ const ShowImage = ({ images, setParentState }) => {
 
   // };
   return (
-    <div className="flex justify-center mt-3">
+    <div className="mt-3">
       {images.map((image, i) => (
         <Image key={i} image={image} removeImage={removeImage} />
       ))}

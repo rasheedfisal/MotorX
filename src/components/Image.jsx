@@ -3,7 +3,7 @@ import { TiDelete } from 'react-icons/ti';
 import ColoredIcons from './ColoredIcons';
 function Image({ image, removeImage }) {
   return (
-    <div className="relative">
+    <div className="relative p-3">
       <span
         className="absolute top-0.5 right-0.5 z-10"
         onClick={removeImage(image)}

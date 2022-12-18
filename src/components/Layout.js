@@ -83,7 +83,7 @@ const Layout = () => {
             {/* Route Children Inheretance */}
             <Outlet />
           </motion.div>
-          {/* <Footer /> */}
+          <Footer />
         </div>
       </div>
     </div>

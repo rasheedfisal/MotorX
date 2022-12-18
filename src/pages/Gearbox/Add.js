@@ -97,7 +97,7 @@ const Add = () => {
           name="gearboxNameAr"
           type="text"
           placeholder=""
-          {...register('gearboxNameAr', { required: 'This field is required' })}
+          {...register('gearboxNameAr')}
         />
         {errors.gearboxNameAr && (
           <div className="mb-3 text-normal text-red-500 ">

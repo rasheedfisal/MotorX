@@ -4,18 +4,25 @@ import { MdOutlineCancel } from 'react-icons/md';
 import { Button } from '.';
 import { userProfileData } from '../data/siteInfo';
 import useAuth from '../hooks/useAuth';
-import avatar from '../data/avatar.jpg';
+import avatar from '../data/product1.jpg';
 import { useNavigate } from 'react-router-dom';
 import useSignOut from '../hooks/useSignOut';
 
 const UserProfile = () => {
-  const { currentColor, auth } = useAuth();
+  const { currentColor, auth, setAuth } = useAuth();
+  const isAdmin = auth?.user?.split('@')[1] === 'admin.com' ? true : false;
+  const id = auth.uid;
   const navigate = useNavigate();
   const signOut = useSignOut();
 
   const logout = async () => {
     await signOut();
     navigate('/');
+  };
+
+  const ProfileNavigation = (PageUrl) => {
+    //{ state: { id }
+    navigate(PageUrl, { state: { id } });
   };
 
   return (
@@ -43,7 +50,7 @@ const UserProfile = () => {
           </p>
           <p className="text-gray-500 text-sm dark:text-gray-400">
             {' '}
-            Administrator{' '}
+            {isAdmin ? 'Administrator' : 'Manager'}{' '}
           </p>
           <p className="text-gray-500 text-sm font-semibold dark:text-gray-400">
             {' '}
@@ -56,6 +63,7 @@ const UserProfile = () => {
           <div
             key={index}
             className="flex gap-5 border-b-1 border-color p-4 hover:bg-light-gray cursor-pointer  dark:hover:bg-[#42464D]"
+            onClick={() => ProfileNavigation(item.pageUrl)}
           >
             <button
               type="button"
@@ -64,7 +72,6 @@ const UserProfile = () => {
             >
               {item.icon}
             </button>
-
             <div>
               <p className="font-semibold dark:text-gray-200 ">{item.title}</p>
               <p className="text-gray-500 text-sm dark:text-gray-400">

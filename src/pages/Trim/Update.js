@@ -138,7 +138,7 @@ const Update = () => {
           name="trimNameAr"
           type="text"
           placeholder=""
-          {...register('trimNameAr', { required: 'This field is required' })}
+          {...register('trimNameAr')}
         />
         {errors.trimNameAr && (
           <div className="mb-3 text-normal text-red-500 ">

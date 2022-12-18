@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { AiOutlineEye } from 'react-icons/ai';
 import { IoIosMore } from 'react-icons/io';
+import useAxiosPrivate from '../hooks/useAxiosPrivate';
 
 import { Button } from '../components';
 import { earningData, weeklyStats } from '../data/siteInfo';
 import useAuth from '../hooks/useAuth';
 
 const Home = () => {
+  const axiosPrivate = useAxiosPrivate();
   const { currentColor } = useAuth();
+  const [count, setCount] = useState(0);
+  const ReadResponseList = async () => {
+    let isMounted = true;
+    const controller = new AbortController();
+    try {
+      const response = await axiosPrivate.get(`/CustomerSummary/GetCount`, {
+        ContentType: 'application/json',
+        signal: controller.signal
+      });
+
+      isMounted && setCount(response?.data);
+      //console.log(response?.data);
+    } catch (err) {
+      console.log(err);
+    }
+    return () => {
+      isMounted = false;
+      controller.abort();
+    };
+  };
+
+  useEffect(() => {
+    ReadResponseList();
+  }, []);
 
   return (
     <div className="mt-24">
@@ -16,7 +42,7 @@ const Home = () => {
           <div className="flex justify-between items-center">
             <div>
               <p className="font-bold text-gray-400">Visits</p>
-              <p className="text-2xl">447</p>
+              <p className="text-2xl">{count}</p>
             </div>
             <button
               type="button"

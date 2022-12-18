@@ -13,8 +13,10 @@ import {
   FiBarChart,
   FiCreditCard,
   FiStar,
-  FiShoppingCart
+  FiShoppingCart,
+  FiUsers
 } from 'react-icons/fi';
+
 import {
   BsKanban,
   BsBarChart,
@@ -23,7 +25,8 @@ import {
   BsShield,
   BsChatLeft,
   BsCurrencyExchange,
-  BsGearWideConnected
+  BsGearWideConnected,
+  BsFillShieldLockFill
 } from 'react-icons/bs';
 import {
   MdOutlineFeaturedPlayList,
@@ -32,11 +35,19 @@ import {
   MdEditCalendar,
   MdOutlineSupervisorAccount,
   MdOutlineLocalOffer,
-  MdOutlineCategory
+  MdOutlineCategory,
+  MdNotificationsActive,
+  MdLocationOn
 } from 'react-icons/md';
+
 import { BiColorFill, BiTrim } from 'react-icons/bi';
 import { TbEngine } from 'react-icons/tb';
-import { FaTachometerAlt } from 'react-icons/fa';
+import {
+  FaTachometerAlt,
+  FaUserShield,
+  FaUserCog,
+  FaUser
+} from 'react-icons/fa';
 import { IoMdContacts } from 'react-icons/io';
 import { TbBrandAdobe } from 'react-icons/tb';
 import { SiManageiq } from 'react-icons/si';
@@ -44,7 +55,7 @@ import { RiContactsLine, RiStockLine } from 'react-icons/ri';
 import { HiOutlineRefresh } from 'react-icons/hi';
 import { TiTick } from 'react-icons/ti';
 import { GiLouvrePyramid } from 'react-icons/gi';
-import { GrLocation } from 'react-icons/gr';
+import { GrLocationPin } from 'react-icons/gr';
 import avatar from './avatar.jpg';
 import avatar2 from './avatar2.jpg';
 import avatar3 from './avatar3.png';
@@ -105,7 +116,7 @@ const gridEmployeeProfile = (props) => (
 
 const gridEmployeeCountry = (props) => (
   <div className="flex items-center justify-center gap-2">
-    <GrLocation />
+    {/* <GrLocation /> */}
     <span>{props.Country}</span>
   </div>
 );
@@ -535,13 +546,13 @@ export const links = [
     links: [
       {
         name: 'Offers',
-        path: 'offer',
+        path: 'offers',
         icon: <MdOutlineLocalOffer />
       },
       {
-        name: 'Orders',
-        path: 'manageorder',
-        icon: <SiManageiq />
+        name: 'Notification',
+        path: 'Notifications',
+        icon: <MdNotificationsActive />
       }
       // {
       //   name: 'Customers',
@@ -581,7 +592,7 @@ export const links = [
       {
         name: 'Location',
         path: 'Location',
-        icon: <GrLocation />
+        icon: <MdLocationOn />
       },
       {
         name: 'Feature Type',
@@ -616,18 +627,18 @@ export const links = [
     ]
   },
   {
-    title: 'Chart Reports',
+    title: 'Statistic',
     links: [
       {
         name: 'Offer Chart',
-        path: '/home',
+        path: 'Statistic/OfferStats',
         icon: <AiOutlineStock />
-      },
-      {
-        name: 'Order Chart',
-        path: '/home',
-        icon: <AiOutlineAreaChart />
       }
+      // {
+      //   name: 'Order Chart',
+      //   path: '/home',
+      //   icon: <AiOutlineAreaChart />
+      // }
 
       // {
       //   name: 'bar',
@@ -659,6 +670,19 @@ export const links = [
       //   path: '/home',
       //   icon: <AiOutlineBarChart />
       // }
+    ]
+  }
+];
+
+export const adminLinks = [
+  {
+    title: 'Authentication',
+    links: [
+      {
+        name: 'Users',
+        path: 'Users',
+        icon: <FaUser />
+      }
     ]
   }
 ];
@@ -937,11 +961,12 @@ export const themeColors = [
 
 export const userProfileData = [
   {
-    icon: <BsCurrencyDollar />,
+    icon: <FaUserCog />,
     title: 'My Profile',
     desc: 'Account Settings',
     iconColor: '#03C9D7',
-    iconBg: '#E5FAFB'
+    iconBg: '#E5FAFB',
+    pageUrl: '/Users/Profile'
   }
   // {
   //   icon: <BsShield />,

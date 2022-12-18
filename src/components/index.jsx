@@ -13,3 +13,5 @@ export { default as ShowImage } from './ShowImage';
 export { default as ColoredIcons } from './ColoredIcons';
 export { default as Loader } from './Loader';
 export { default as PersistLogin } from './PersistLogin';
+export { default as Stepper } from './Stepper';
+export { default as FileInput } from './FileInput';

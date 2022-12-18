@@ -14,7 +14,9 @@ const useRefreshToken = () => {
       //console.log(response?.data?.token);
       return {
         ...prev,
-        username: response?.data?.userName,
+        username: response?.data?.fullName,
+        user: response?.data?.userName,
+        uid: response?.data?.id,
         accessToken: response?.data?.token
       };
     });

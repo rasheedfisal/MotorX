@@ -101,65 +101,67 @@ const Manage = () => {
                 </span>
               </div>
             </div>
-            <Loader loading={loading} override={override} />
             <div className="shadow overflow-hidden flex justify-center items-center border-b border-gray-400 sm:rounded-lg">
-              <table className="min-w-full divide-y divide-gray-400">
-                <thead className="bg-gray-100">
-                  <tr>
-                    <th
-                      scope="col"
-                      className="px-10 py-1 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
-                    >
-                      ID
-                    </th>
-                    <th
-                      scope="col"
-                      className="px-10 py-1 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
-                    >
-                      Year
-                    </th>
+              <div className="inline-block w-full">
+                <Loader loading={loading} override={override} />
+                <table className="min-w-full divide-y divide-gray-400">
+                  <thead className="bg-gray-100">
+                    <tr>
+                      <th
+                        scope="col"
+                        className="px-10 py-1 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
+                      >
+                        ID
+                      </th>
+                      <th
+                        scope="col"
+                        className="px-10 py-1 text-left text-xs font-medium text-gray-600 uppercase tracking-wider"
+                      >
+                        Year
+                      </th>
 
-                    <th scope="col" className="relative px-6 py-1">
-                      <span className="sr-only">Edit</span>
-                    </th>
-                  </tr>
-                </thead>
+                      <th scope="col" className="relative px-6 py-1">
+                        <span className="sr-only">Edit</span>
+                      </th>
+                    </tr>
+                  </thead>
 
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {list.map((res) => (
-                    <tr key={res.id}>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        <div className="text-sm text-gray-500">{res.id}</div>
-                      </td>
-                      <td className="px-6 py-4 whitespace-nowrap">
-                        {/* <div className="flex items-center"> */}
-                        {/* <div className="flex-shrink-0 h-10 w-10">
+                  <tbody className="bg-white divide-y divide-gray-200">
+                    {list.map((res) => (
+                      <tr key={res.id}>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <div className="text-sm text-gray-500">{res.id}</div>
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {/* <div className="flex items-center"> */}
+                          {/* <div className="flex-shrink-0 h-10 w-10">
                            
                           </div> */}
-                        {/* <div className="ml-4"> */}
-                        <div className="text-sm font-medium text-gray-900">
-                          <p> {res.yearName}</p>
-                        </div>
-                        {/* </div> */}
-                      </td>
-                      <td className="px-6 py-4 space-x-2 whitespace-nowrap text-right text-sm font-medium">
-                        <button
-                          className="inline-block text-sm px-4 py-2 leading-none border rounded text-blue-800 border-blue-600 hover:bg-blue-300 hover:text-blue-500 mt-4 lg:mt-0"
-                          onClick={() => Update(res.id)}
-                        >
-                          EDIT
-                        </button>
-                        <button
-                          className="inline-block text-sm px-4 py-2 leading-none border rounded text-red-800 border-red-600 hover:bg-red-300 hover:text-red-500 mt-4 lg:mt-0"
-                          onClick={async () => Delete(res.id)}
-                        >
-                          DELETE
-                        </button>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+                          {/* <div className="ml-4"> */}
+                          <div className="text-sm font-medium text-gray-900">
+                            <p> {res.yearName}</p>
+                          </div>
+                          {/* </div> */}
+                        </td>
+                        <td className="px-6 py-4 space-x-2 whitespace-nowrap text-right text-sm font-medium">
+                          <button
+                            className="inline-block text-sm px-4 py-2 leading-none border rounded text-blue-800 border-blue-600 hover:bg-blue-300 hover:text-blue-500 mt-4 lg:mt-0"
+                            onClick={() => Update(res.id)}
+                          >
+                            EDIT
+                          </button>
+                          <button
+                            className="inline-block text-sm px-4 py-2 leading-none border rounded text-red-800 border-red-600 hover:bg-red-300 hover:text-red-500 mt-4 lg:mt-0"
+                            onClick={async () => Delete(res.id)}
+                          >
+                            DELETE
+                          </button>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>

@@ -37,7 +37,20 @@ import {
   UpdateCurrency,
   Years,
   AddYear,
-  UpdateYear
+  UpdateYear,
+  AddOffer,
+  ManageOffer,
+  UpdateOffer,
+  OfferFeatures,
+  Gallary,
+  Details,
+  OfferStats,
+  Notification,
+  AddNotification,
+  Users,
+  UpdateUser,
+  Profile,
+  AddUser
 } from './pages';
 import { RequireAuth, Layout, PersistLogin } from './components';
 import { Routes, Route } from 'react-router-dom';
@@ -111,6 +124,27 @@ function App() {
             <Route path="Years" element={<Years />} />
             <Route path="Years/Add" element={<AddYear />} />
             <Route path="Years/Update" element={<UpdateYear />} />
+
+            {/* Offers */}
+            <Route path="Offers" element={<ManageOffer />} />
+            <Route path="Offers/Add" element={<AddOffer />} />
+            <Route path="Offers/Update" element={<UpdateOffer />} />
+            <Route path="Offers/Features" element={<OfferFeatures />} />
+            <Route path="Offers/Gallary" element={<Gallary />} />
+            <Route path="Offers/Details" element={<Details />} />
+
+            {/* Statistics */}
+            <Route path="Statistic/OfferStats" element={<OfferStats />} />
+
+            {/* Notification */}
+            <Route path="Notifications" element={<Notification />} />
+            <Route path="Notifications/Add" element={<AddNotification />} />
+
+            {/* Users */}
+            <Route path="Users" element={<Users />} />
+            <Route path="Users/Add" element={<AddUser />} />
+            <Route path="Users/Update" element={<UpdateUser />} />
+            <Route path="Users/Profile" element={<Profile />} />
           </Route>
         </Route>
       </Route>

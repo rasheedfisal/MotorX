@@ -141,9 +141,7 @@ const Update = () => {
           name="currencyNameAr"
           type="text"
           placeholder=""
-          {...register('currencyNameAr', {
-            required: 'This field is required'
-          })}
+          {...register('currencyNameAr')}
         />
         {errors.currencyNameAr && (
           <div className="mb-3 text-normal text-red-500 ">

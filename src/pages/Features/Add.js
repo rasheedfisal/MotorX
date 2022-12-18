@@ -130,7 +130,7 @@ const Add = () => {
           name="featureNameAr"
           type="text"
           placeholder=""
-          {...register('featureNameAr', { required: 'This field is required' })}
+          {...register('featureNameAr')}
         />
         {errors.featureNameAr && (
           <div className="mb-3 text-normal text-red-500 ">

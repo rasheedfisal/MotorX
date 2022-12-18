@@ -141,9 +141,7 @@ const Update = () => {
           name="locationNameAr"
           type="text"
           placeholder=""
-          {...register('locationNameAr', {
-            required: 'This field is required'
-          })}
+          {...register('locationNameAr')}
         />
         {errors.locationNameAr && (
           <div className="mb-3 text-normal text-red-500 ">

@@ -60,3 +60,24 @@ export { default as UpdateCurrency } from './Currency/Update';
 export { default as Years } from './Years/Manage';
 export { default as AddYear } from './Years/Add';
 export { default as UpdateYear } from './Years/Update';
+
+// Offers
+export { default as AddOffer } from './Offers/Add';
+export { default as ManageOffer } from './Offers/Manage';
+export { default as UpdateOffer } from './Offers/Update';
+export { default as OfferFeatures } from './Offers/Features';
+export { default as Gallary } from './Offers/Gallary';
+export { default as Details } from './Offers/Details';
+
+//Statistics
+export { default as OfferStats } from './Statistic/OfferStats';
+
+//Notification
+export { default as Notification } from './Notification/Manage';
+export { default as AddNotification } from './Notification/Add';
+
+//users
+export { default as Users } from './Users/Manage';
+export { default as UpdateUser } from './Users/Update';
+export { default as Profile } from './Users/Profile';
+export { default as AddUser } from './Users/Add';

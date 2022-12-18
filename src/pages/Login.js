@@ -58,19 +58,23 @@ function Login() {
       );
       //console.log(JSON.stringify(response));
       const accessToken = response?.data?.token;
-      const username = response?.data?.userName;
-      setAuth({ username, user, accessToken });
+      // const username = response?.data?.userName;
+      const username = response?.data?.fullName;
+      const uid = response?.data?.id;
+      setAuth({ username, user, accessToken, uid });
       setUser('');
       setPwd('');
       navigate('/home', { replace: true });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (!err?.response) {
         setErrMsg('No Server Response');
       } else if (err.response?.status === 400) {
         setErrMsg('Invalid Credentials');
       } else if (err.response?.status === 401) {
         setErrMsg('Unauthorized');
+      } else if (err.response?.status === 423) {
+        setErrMsg('User Locked');
       } else {
         setErrMsg('Login Failed');
       }

@@ -17,6 +17,14 @@ export const AuthProvider = ({ children }) => {
   const [persist, setPersist] = useState(
     JSON.parse(localStorage.getItem('persist')) || false
   );
+  const [currentStep, setCurrentStep] = useState(1);
+  const [multiData, setMultiData] = useState({});
+  const setMultiValues = (values) => {
+    setMultiData((prev) => ({
+      ...prev,
+      ...values
+    }));
+  };
 
   const setMode = (e) => {
     setCurrentMode(e.target.value);
@@ -53,7 +61,12 @@ export const AuthProvider = ({ children }) => {
         themeSettings,
         setThemeSettings,
         persist,
-        setPersist
+        setPersist,
+        currentStep,
+        setCurrentStep,
+        multiData,
+        setMultiValues,
+        setMultiData
       }}
     >
       {children}
