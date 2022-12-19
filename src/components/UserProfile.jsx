@@ -22,7 +22,7 @@ const UserProfile = () => {
 
   const ProfileNavigation = (PageUrl) => {
     //{ state: { id }
-    navigate(PageUrl, { state: { id } });
+    navigate(PageUrl);
   };
 
   return (

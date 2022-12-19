@@ -140,7 +140,7 @@ const Manage = () => {
               </div>
             </div>
             <div className="shadow overflow-hidden hidden  md:block border-b border-gray-400 sm:rounded-lg">
-              <div className="inline-block w-full">
+              <div className="inline-block w-full relative">
                 <Loader loading={loading} override={override} />
                 <table className="w-full divide-y divide-gray-400">
                   <thead className="bg-gray-100">

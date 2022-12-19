@@ -49,7 +49,7 @@ const SectionFour = ({
         <form onSubmit={handleSubmit(handleSubmitClick)}>
           <div className="container flex justify-around my-8 ">
             <div className="w-10/12 m-auto py-10 px-12 mb-5">
-              <div className="flex justify-between">
+              <div className="flex justify-center gap-5 flex-wrap">
                 {/* <MainFeatureTypes
               {...{
                 control,

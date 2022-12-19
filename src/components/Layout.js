@@ -38,10 +38,40 @@ const Layout = () => {
     duration: 0.5
   };
 
+  const variants = {
+    inactive: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: 'tween',
+        duration: 0.5,
+        ease: 'easeInOut'
+      }
+    },
+    out: {
+      opacity: 0,
+      y: -100,
+      transition: {
+        type: 'tween',
+        duration: 0.5,
+        ease: 'easeInOut'
+      }
+    },
+    in: {
+      y: 100,
+      opacity: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut'
+      }
+    }
+  };
+
   return (
     <div className={currentMode === 'Dark' ? 'dark' : ''}>
-      <div className="flex relative dark:bg-main-dark-bg">
+      <div className="flex h-screen antialiased dark:bg-main-dark-bg">
         <div className="fixed right-4 bottom-4" style={{ zIndex: '1000' }}>
+          {/* <div className="flex-1 h-full overflow-x-hidden overflow-y-auto"> */}
           {/* <TooltipComponent content="Settings" position="Top"> */}
           <button
             type="button"
@@ -55,6 +85,7 @@ const Layout = () => {
         </div>
         {activeMenu ? (
           <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white ">
+            {/* <div className="flex-shrink-0 hidden w-72 border-r md:block sidebar dark:bg-secondary-dark-bg bg-white "> */}
             <Sidebar />
           </div>
         ) : (
@@ -69,21 +100,28 @@ const Layout = () => {
               : 'bg-main-bg dark:bg-main-dark-bg  w-full min-h-screen flex-2 '
           }
         >
-          <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full ">
-            <Navbar />
+          {/* <div className="fixed md:static bg-main-bg dark:bg-main-dark-bg navbar w-full"> */}
+          <div className="flex-1 bg-main-bg dark:bg-main-dark-bg">
+            <div class="px-4 py-4 lg:py-6">
+              <Navbar />
+            </div>
+            <motion.div
+              key={pathname}
+              initial="in"
+              animate="inactive"
+              exit="out"
+              variants={variants}
+              // initial="initial"
+              // animate="in"
+              // variants={pageVariants}
+              //transition={pageTransition}
+            >
+              {themeSettings && <ThemeSettings />}
+              {/* Route Children Inheretance */}
+              <Outlet />
+            </motion.div>
+            <Footer />
           </div>
-          <motion.div
-            key={pathname}
-            initial="initial"
-            animate="in"
-            variants={pageVariants}
-            transition={pageTransition}
-          >
-            {themeSettings && <ThemeSettings />}
-            {/* Route Children Inheretance */}
-            <Outlet />
-          </motion.div>
-          <Footer />
         </div>
       </div>
     </div>

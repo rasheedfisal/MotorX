@@ -7,7 +7,7 @@ const Loader = ({ loading, override }) => {
   return (
     <BeatLoader
       color={currentColor}
-      size={30}
+      size={20}
       loading={loading}
       cssOverride={override}
     />

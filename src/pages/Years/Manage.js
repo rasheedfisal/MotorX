@@ -9,9 +9,13 @@ const Manage = () => {
   const axiosPrivate = useAxiosPrivate();
   const navigate = useNavigate();
   const override = {
+    position: 'absolute',
+    width: '100%',
+    height: '100%',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'rgba(0,0,0,.5)'
   };
   useEffect(() => {
     ReadResponseList();
@@ -102,7 +106,7 @@ const Manage = () => {
               </div>
             </div>
             <div className="shadow overflow-hidden flex justify-center items-center border-b border-gray-400 sm:rounded-lg">
-              <div className="inline-block w-full">
+              <div className="inline-block w-full relative">
                 <Loader loading={loading} override={override} />
                 <table className="min-w-full divide-y divide-gray-400">
                   <thead className="bg-gray-100">

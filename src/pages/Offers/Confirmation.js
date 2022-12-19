@@ -13,8 +13,7 @@ const Confirmation = ({
   setFeatures
 }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const { currentColor, multiData, setCurrentStep, setMultiData, auth } =
-    useAuth();
+  const { currentColor, multiData, setCurrentStep, setMultiData } = useAuth();
   const [loading, setLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
@@ -102,7 +101,6 @@ const Confirmation = ({
       });
 
       formData.append('YTLink', multiData.ytLink);
-      formData.append('UserId', auth?.uid);
 
       const config = {
         headers: {

@@ -115,7 +115,7 @@ const Features = () => {
         >
           {errMsg}
         </p>
-        <div className="flex justify-between items-start">
+        <div className="flex justify-center gap-5 items-start flex-wrap">
           {features.map((type, i) => (
             <div key={type.i} className="flex flex-col">
               <h3 className="text-2xl underline">{type.typeName}</h3>

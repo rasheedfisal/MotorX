@@ -60,8 +60,7 @@ function Login() {
       const accessToken = response?.data?.token;
       // const username = response?.data?.userName;
       const username = response?.data?.fullName;
-      const uid = response?.data?.id;
-      setAuth({ username, user, accessToken, uid });
+      setAuth({ username, user, accessToken });
       setUser('');
       setPwd('');
       navigate('/home', { replace: true });

@@ -4,11 +4,8 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../hooks/useAuth';
 import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
 
 const Profile = () => {
-  const { state } = useLocation();
-  const { id } = state;
   const [loading, setLoading] = useState(true);
   const [item, setItem] = useState(null);
   const errRef = useRef();
@@ -35,12 +32,9 @@ const Profile = () => {
     const ReadItem = async () => {
       try {
         setLoading(true);
-        const response = await axiosPrivate.get(
-          `/Accounts/GetUser?userid=${id}`,
-          {
-            signal: controller.signal
-          }
-        );
+        const response = await axiosPrivate.get('/Accounts/GetUserProfile', {
+          signal: controller.signal
+        });
         if (isMounted) {
           const data = response?.data;
           //console.log(data);
@@ -69,7 +63,6 @@ const Profile = () => {
     const controller = new AbortController();
     try {
       const updateItem = {
-        userId: id,
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,

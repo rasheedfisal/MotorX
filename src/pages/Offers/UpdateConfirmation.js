@@ -7,7 +7,7 @@ import useAxiosPrivate from '../../hooks/useAxiosPrivate';
 
 const UpdateConfirmation = ({ handleClick, pageVariants, pageTransition }) => {
   const [isHovering, setIsHovering] = useState(false);
-  const { currentColor, multiData, auth, setMultiData } = useAuth();
+  const { currentColor, multiData, setMultiData } = useAuth();
   const [loading, setLoading] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
   const [isFailed, setIsFailed] = useState(false);
@@ -54,8 +54,7 @@ const UpdateConfirmation = ({ handleClick, pageVariants, pageTransition }) => {
         price: multiData.price,
         currencyId: multiData.currencies.value,
         isActive: multiData.isActive,
-        ytLink: multiData.ytLink,
-        userId: auth?.uid
+        ytLink: multiData.ytLink
       };
 
       const config = {
