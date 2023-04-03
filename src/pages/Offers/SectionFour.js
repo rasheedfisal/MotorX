@@ -18,9 +18,9 @@ const SectionFour = ({
   //   features: features.features
   // };
   const { register, handleSubmit } = useForm({
-    mode: 'onBlur'
+    mode: 'onBlur',
     //defaultValues: multiData.features
-     defaultValues: { features: features.features }
+    defaultValues: { features: features.features }
   });
 
   const handleMouseEnter = () => {
