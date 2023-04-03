@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-// const BASE_URL = 'https://localhost:7186/api/v1/';
+const BASE_URL = 'https://localhost:7186/api/v1/';
 const BASE_NOTIFY_URL = 'https://fcm.googleapis.com/fcm/send';
-const BASE_URL = 'http://207.180.223.113:8975/api/v1/';
+// const BASE_URL = 'http://207.180.223.113:8975/api/v1/';
 
 export default axios.create({
   baseURL: BASE_URL
