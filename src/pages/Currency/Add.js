@@ -78,7 +78,7 @@ const Add = () => {
           {errMsg}
         </p>
         <label className="text-gray-600 font-medium dark:text-white">
-          Location
+          Currency
         </label>
         <input
           className="border-solid border-gray-300 border py-2 px-4 w-full rounded text-gray-700"
